@@ -1,0 +1,7 @@
+**/project/.Xil
+**/project/lab*/*.cache
+**/project/lab*/*.hw
+**/project/lab*/*.ip_user_files
+**/project/lab*/*.sim
+**/project/lab*/hdl
+**/project/*.zip
