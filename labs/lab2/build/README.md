@@ -1,7 +1,8 @@
 # Building Vivado Project
 
-1) ```./create_project```
-2) ```./launch_project```
+1) ```./create_project.sh```
+	- This will create the vivado project building from the block diagram embedded in the project tcl
+2) ```./launch_project.sh```
 
 # Building Vitis Project
 
