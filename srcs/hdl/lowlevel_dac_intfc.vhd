@@ -44,6 +44,10 @@ architecture behav of lowlevel_dac_intfc is
   signal s_bclk : std_logic;
   signal s_mclk : std_logic;
 
+  --! Register
+  signal data_word_reg  : std_logic_vector(31 downto 0);
+  signal latched_data_s : std_logic;
+
 begin
   -- ------------------------------------------------
   -- Processes for counters and clk
@@ -154,12 +158,27 @@ begin
   end process;
 
   -- ------------------------------------------------
+  -- Register Input Data for Clock Domain Crossing
+  -- ------------------------------------------------
+  cdc_reg_data_word_p : process(clk125)
+  begin
+    if rising_edge(clk125) then
+      if resetn = '1' then
+        data_word_reg <= (others => '0');
+      elsif latched_data_s = '1' then
+        data_word_reg <= data_word;
+      end if;
+    end if;
+  end process;
+
+  -- ------------------------------------------------
   -- Signal Assignments
   -- ------------------------------------------------
   lrck  <= s_lrck;
   bclk  <= s_bclk;
   mclk  <= s_mclk;
-  sdata <= data_word(to_integer(data_cnt));
+  sdata <= data_word_reg(to_integer(data_cnt));
   latched_data <= '1' when data_cnt = 0 and b_cnt = 39 and s_bclk = '1' else '0';
+  latched_data_s  <= '1' when data_cnt = 0 and b_cnt = 39 and s_bclk = '1' else '0';
 
 end behav;

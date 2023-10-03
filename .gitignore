@@ -1,3 +1,14 @@
 **.Xil
 **/output
 **.zip
+**dds_system/
+**/vitis/lab3/
+**RemoteSystemsTempFiles**
+**.log
+**.metadata**
+**.analytics**
+**_ide
+**.cproject
+**.project
+**.prj
+**.odt
