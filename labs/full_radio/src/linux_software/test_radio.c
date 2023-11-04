@@ -65,7 +65,7 @@ void print_benchmark(volatile unsigned int *periph_base)
     float clk_cycles = stop_time - start_time;					// Get number of clk cycles
     float time_spent = clk_cycles / 125000000;					// clk cycles / clk speed
     throughput = bytes_transferred/time_spent/1000000;			// bytes / time / 1MB
-    printf("You transferred %f bytes of data in %f seconds\n",bytes_transferred,time_spent);
+    printf("You transferred %u bytes of data in %f seconds\n",bytes_transferred,time_spent);
     printf("Measured Transfer throughput = %f Mbytes/sec\n",throughput);
 }
 
