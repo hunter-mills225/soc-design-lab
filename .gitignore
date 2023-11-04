@@ -12,3 +12,5 @@
 **.prj
 **.odt
 **top_level/
+labs/lab*/build/lab*
+labs/lab*/build/vitis/

@@ -3,7 +3,7 @@
 # Gather path information relative to the invocation name(symlink)
 #
 BUILD_PATH=$( realpath $( dirname "${0}" ) )
-PROJECT_PATH=$( dirname "${BUILD_PATH}/output" )
+PROJECT_PATH=$( dirname "${BUILD_PATH}" )
 PROJECT_NAME=$( basename "${PROJECT_PATH}" )
 
 # Display some sanity check info to the user
