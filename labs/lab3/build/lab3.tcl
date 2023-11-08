@@ -23,7 +23,6 @@
 # 2. The following source(s) files that were local or imported into the original project.
 #    (Please see the '$orig_proj_dir' and '$origin_dir' variable setting below at the start of the script)
 #
-#    "/home/hmills/JHU/soc-design-lab/labs/lab3/build/output/lab3/top_level_tb_behav.wcfg"
 #
 # 3. The following remote source files that were added to the original project:-
 #
@@ -37,7 +36,6 @@
 proc checkRequiredFiles { origin_dir} {
   set status true
   set files [list \
- "[file normalize "$origin_dir/output/lab3/top_level_tb_behav.wcfg"]"\
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -139,7 +137,7 @@ if { $validate_required } {
 }
 
 # Create project
-create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xc7z020clg400-1
+create_project ${_xil_proj_name_} ./output -part xc7z020clg400-1
 
 # Set the directory path for the new project
 set proj_dir [get_property directory [current_project]]
@@ -224,12 +222,6 @@ set files [list \
  [file normalize "${origin_dir}/../srcs/hdl/top_level_tb.vhd"] \
 ]
 add_files -norecurse -fileset $obj $files
-
-# Import local files from the original project
-set files [list \
- [file normalize "${origin_dir}/output/lab3/top_level_tb_behav.wcfg" ]\
-]
-set imported_files [import_files -fileset sim_1 $files]
 
 # Set 'sim_1' fileset file properties for remote files
 set file "$origin_dir/../srcs/hdl/top_level_tb.vhd"

@@ -35,7 +35,6 @@
 #    "/home/hmills/JHU/soc-design-lab/labs/lab4/srcs/matlab/filter2.coe"
 #    "/home/hmills/JHU/soc-design-lab/labs/lab4/srcs/constraints/lab4.xdc"
 #    "/home/hmills/JHU/soc-design-lab/labs/lab4/srcs/hdl/top_level_tb.vhd"
-#    "/home/hmills/soc-design-lab/labs/lab4/build/output/lab4/lab4.srcs/utils_1/imports/synth_1/top_level.dcp"
 #
 #*****************************************************************************************
 
@@ -51,7 +50,6 @@ proc checkRequiredFiles { origin_dir} {
  "[file normalize "$origin_dir/../srcs/matlab/filter2.coe"]"\
  "[file normalize "$origin_dir/../srcs/constraints/lab4.xdc"]"\
  "[file normalize "$origin_dir/../srcs/hdl/top_level_tb.vhd"]"\
- "[file normalize "$origin_dir/../../../../../soc-design-lab/labs/lab4/build/output/lab4/lab4.srcs/utils_1/imports/synth_1/top_level.dcp"]"\
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -141,7 +139,7 @@ if { $validate_required } {
 }
 
 # Create project
-create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xc7z020clg400-1
+create_project ${_xil_proj_name_} ./output -part xc7z020clg400-1
 
 # Set the directory path for the new project
 set proj_dir [get_property directory [current_project]]
@@ -264,19 +262,6 @@ set obj [get_filesets sim_1]
 set_property -name "top" -value "top_level_tb" -objects $obj
 set_property -name "top_auto_set" -value "0" -objects $obj
 set_property -name "top_lib" -value "xil_defaultlib" -objects $obj
-
-# Set 'utils_1' fileset object
-set obj [get_filesets utils_1]
-set files [list \
- [file normalize "${origin_dir}/../../../../../soc-design-lab/labs/lab4/build/output/lab4/lab4.srcs/utils_1/imports/synth_1/top_level.dcp"] \
-]
-add_files -norecurse -fileset $obj $files
-
-# Set 'utils_1' fileset file properties for remote files
-set file "$origin_dir/../../../../../soc-design-lab/labs/lab4/build/output/lab4/lab4.srcs/utils_1/imports/synth_1/top_level.dcp"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets utils_1] [list "*$file"]]
-set_property -name "netlist_only" -value "0" -objects $file_obj
 
 
 # Set 'utils_1' fileset file properties for local files
@@ -1171,7 +1156,6 @@ if { $obj != "" } {
 }
 set obj [get_runs synth_1]
 set_property -name "needs_refresh" -value "1" -objects $obj
-set_property -name "incremental_checkpoint" -value "/home/hmills/soc-design-lab/labs/lab4/build/output/lab4/lab4.srcs/utils_1/imports/synth_1/top_level.dcp" -objects $obj
 set_property -name "auto_incremental_checkpoint" -value "1" -objects $obj
 set_property -name "auto_incremental_checkpoint.directory" -value "/home/hmills/soc-design-lab/labs/lab4/build/output/lab4/lab4.srcs/utils_1/imports/synth_1" -objects $obj
 set_property -name "strategy" -value "Vivado Synthesis Defaults" -objects $obj

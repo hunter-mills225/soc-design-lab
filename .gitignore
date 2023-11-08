@@ -1,7 +1,6 @@
 **.Xil
 **/output
 **.zip
-**/vitis/lab3/
 **RemoteSystemsTempFiles**
 **.log
 **.metadata**
@@ -12,5 +11,4 @@
 **.prj
 **.odt
 **top_level/
-labs/lab*/build/lab*
-labs/lab*/build/vitis/
+**Xilinx.spec

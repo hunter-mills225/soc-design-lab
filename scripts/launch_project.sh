@@ -12,5 +12,5 @@ echo "PROJECT: ${PROJECT_NAME}"
 echo "ROOT: ${PROJECT_PATH}"
 
 pushd "${BUILD_PATH}" 1>/dev/null
-vivado -nolog -nojournal "${PROJECT_NAME}/${PROJECT_NAME}".xpr &
+vivado -nolog -nojournal "output/${PROJECT_NAME}".xpr &
 popd 1>/dev/null
