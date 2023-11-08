@@ -500,7 +500,7 @@ adc_dds : dds_compiler_0
     aclk => s_axi_aclk,
     aresetn => slv_reg2(0),
     s_axis_a_tvalid => adc_m_tvalid,
-    s_axis_a_tdata => adc_m_tdata & adc_m_tdata,
+    s_axis_a_tdata => x"0000" & adc_m_tdata,
     s_axis_b_tvalid => lo_m_tvalid,
     s_axis_b_tdata => lo_m_tdata,
     m_axis_dout_tvalid => cmpy_m_tvalid,

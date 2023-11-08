@@ -67,7 +67,7 @@ begin
         m_axis_tdata  <= (others => '0');
         m_axis_tvalid <= '0';
       else
-        m_axis_tdata <= axis_imag_tdata(29 downto 14) & axis_real_tdata(30 downto 15);
+        m_axis_tdata <= axis_imag_tdata(28 downto 13) & axis_real_tdata(28 downto 13);
         m_axis_tvalid  <= axis_valid_s;
       end if;
     end if;
