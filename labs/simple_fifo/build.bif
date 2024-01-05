@@ -1,0 +1,5 @@
+all:
+{
+	./simple_fifo.runs/impl_1/design_1_wrapper.bit
+}
+
