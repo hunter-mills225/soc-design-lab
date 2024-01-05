@@ -1,0 +1,5 @@
+all:
+{
+	./output/linux_radio_udp.runs/impl_1/design_1_wrapper.bit
+}
+
